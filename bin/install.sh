@@ -169,6 +169,7 @@ base_min() {
 		lsof \
 		make \
 		mount \
+		nano \
 		net-tools \
 		neovim \
 		silversearcher-ag \
@@ -490,16 +491,16 @@ install_wmapps() {
 
 	# update clickpad settings
 	mkdir -p /etc/X11/xorg.conf.d/
-	curl -sSL https://raw.githubusercontent.com/jessfraz/dotfiles/master/etc/X11/xorg.conf.d/50-synaptics-clickpad.conf > /etc/X11/xorg.conf.d/50-synaptics-clickpad.conf
+	curl -sSL https://raw.githubusercontent.com/SoreGums/dotfiles/master/etc/X11/xorg.conf.d/50-synaptics-clickpad.conf > /etc/X11/xorg.conf.d/50-synaptics-clickpad.conf
 
 	# add xorg conf
-	curl -sSL https://raw.githubusercontent.com/jessfraz/dotfiles/master/etc/X11/xorg.conf > /etc/X11/xorg.conf
+	curl -sSL https://raw.githubusercontent.com/SoreGums/dotfiles/master/etc/X11/xorg.conf > /etc/X11/xorg.conf
 
 	# get correct sound cards on boot
-	curl -sSL https://raw.githubusercontent.com/jessfraz/dotfiles/master/etc/modprobe.d/intel.conf > /etc/modprobe.d/intel.conf
+	curl -sSL https://raw.githubusercontent.com/SoreGums/dotfiles/master/etc/modprobe.d/intel.conf > /etc/modprobe.d/intel.conf
 
 	# pretty fonts
-	curl -sSL https://raw.githubusercontent.com/jessfraz/dotfiles/master/etc/fonts/local.conf > /etc/fonts/local.conf
+	curl -sSL https://raw.githubusercontent.com/SoreGums/dotfiles/master/etc/fonts/local.conf > /etc/fonts/local.conf
 
 	echo "Fonts file setup successfully now run:"
 	echo "	dpkg-reconfigure fontconfig-config"
@@ -516,13 +517,13 @@ get_dotfiles() {
 
 	if [[ ! -d "${HOME}/dotfiles" ]]; then
 		# install dotfiles from repo
-		git clone git@github.com:jessfraz/dotfiles.git "${HOME}/dotfiles"
+		git clone git@github.com:SoreGums/dotfiles.git "${HOME}/dotfiles"
 	fi
 
 	cd "${HOME}/dotfiles"
 
 	# set the correct origin
-	git remote set-url origin git@github.com:jessfraz/dotfiles.git
+	git remote set-url origin git@github.com:SoreGums/dotfiles.git
 
 	# installs all the things
 	make
@@ -547,7 +548,7 @@ install_vim() {
 
 	# install .vim files
 	sudo rm -rf "${HOME}/.vim"
-	git clone --recursive git@github.com:jessfraz/.vim.git "${HOME}/.vim"
+	git clone --recursive git@github.com:SoreGums/.vim.git "${HOME}/.vim"
 	(
 	cd "${HOME}/.vim"
 	make install
@@ -648,7 +649,8 @@ main() {
 	elif [[ $cmd == "rust" ]]; then
 		install_rust
 	elif [[ $cmd == "golang" ]]; then
-		install_golang "$2"
+		#install_golang "$2"
+		echo "nope"
 	elif [[ $cmd == "scripts" ]]; then
 		install_scripts
 	elif [[ $cmd == "tools" ]]; then
