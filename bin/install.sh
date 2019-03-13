@@ -151,9 +151,12 @@ base_min() {
 		coreutils \
 		curl \
 		dnsutils \
+		dpkg-dev \
+		dropbear \
 		file \
 		findutils \
 		gcc \
+		g++ \
 		git \
 		gnupg \
 		gnupg2 \
@@ -161,6 +164,7 @@ base_min() {
 		gzip \
 		hostname \
 		indent \
+		iproute2 \
 		iptables \
 		jq \
 		less \
@@ -170,11 +174,11 @@ base_min() {
 		make \
 		mount \
 		nano \
-		net-tools \
+		#net-tools \
 		neovim \
-		silversearcher-ag \
-		ssh \
-		strace \
+		#silversearcher-ag \
+		#ssh \
+		#strace \
 		sudo \
 		tar \
 		tree \
@@ -209,7 +213,7 @@ base() {
 		google-cloud-sdk \
 		iwd \
 		libapparmor-dev \
-		libimobiledevice6 \
+		#libimobiledevice6 \
 		libltdl-dev \
 		libpam-systemd \
 		libseccomp-dev \
